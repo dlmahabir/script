@@ -1,42 +1,42 @@
-function generateRandomNumber(num) {
-    // Gets # from 0 -> num - 1
-    return Math.floor(Math.random() * num)
+const RandomNumber = nums => {
+    // Gets # from 0 -> nums - 1
+    return Math.floor(Math.random() * nums)
   }
   
-  const collectiveWisdom = {
-    signInfo: ['star', 'moon', 'sun', 'comet'],
-    fortuneOutput: ['terrible luck', 'bad luck', 'ok luck', 'good luck', 'great luck'],
-    advice: ['go out and eat', 'not read this', 'play more', 'trust no one']
+  const inspirations = {
+    words: ['love', 'peace', 'mistakes', 'learn', 'cahrity'],
+    omen: ['terrible luck', 'bad luck', 'ok luck', 'good luck', 'great luck'],
+    advice: ['show some more', 'think of others', 'don't worry about it', 'make a change']
   }
   
   // Store the 'wisdom' in an array
-  let personalWisdom = []
+  let personalInspire = []
   
   // Iterate over the object
-  for(let prop in collectiveWisdom) {
-    let optionIdx = generateRandomNumber(collectiveWisdom[prop].length)
+  for(let prop in inspirations) {
+    let optionIdx = RandomNumber(inspirations[prop].length)
   
-    // use the object's properties to customize the message being added to personalWisdom  
+    // use the object's properties to customize the message being added to personalInspire  
     switch(prop) {
-      case 'signInfo':
-        personalWisdom.push(`Your sign right now is a "${collectiveWisdom[prop][optionIdx]}".`)
+      case 'words':
+        personalInspire.push(`Your sign right now is a "${inspirations[prop][optionIdx]}".`)
         break
-      case 'fortuneOutput':
-        personalWisdom.push(`You are having: "${collectiveWisdom[prop][optionIdx]}".`)
+      case 'omen':
+        personalInspire.push(`You are having: "${inspirations[prop][optionIdx]}".`)
         break
       case 'advice':
-        personalWisdom.push(`You should: "${collectiveWisdom[prop][optionIdx]}".`)
+        personalInspire.push(`You should: "${inspirations[prop][optionIdx]}".`)
         break
       default:
-        personalWisdom.push('There is not enough info.')
+        personalInspire.push('There is not enough info.')
     }
   }
   
   function formatWisdom(wisdom) {
     // Add some ASCII here?
     // Add in more symbols to the array? like emojies or what not?
-    const formatted = personalWisdom.join('\n')
+    const formatted = personalInspire.join('\n')
     console.log(formatted)
   }
   
-  formatWisdom(personalWisdom);
+  formatWisdom(personalInspire);
